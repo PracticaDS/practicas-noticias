@@ -18,27 +18,18 @@ const app = express()
 
 app.use(bodyParser.json())
 
-
 app.get('/noticias', (req, res, next) => {
-  Post.find((err, noticias) => {
-    if (err) {
-      return next(err)
-    }
-
-    res.json(noticias)
-  })
+  Post.find()
+    .then(noticias => res.json(noticias))
+    .catch(next)
 })
 
 app.post('/noticias', (req, res, next) => {
   const noticia = new Post(req.body)
 
-  noticia.save((err, noticia) => {
-    if (err) {
-      return next(err)
-    }
-
-    res.sendStatus(200)
-  })
+  noticia.save()
+    .then(noticia => res.sendStatus(200))
+    .catch(next)
 })
 
 const port = 3001
