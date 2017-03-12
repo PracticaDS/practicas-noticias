@@ -8,6 +8,13 @@ const postSchema = new mongoose.Schema({
   createdAt: { type: Date, default: Date.now }
 })
 
+/**
+ * Increments the number of votes by one
+ */
+postSchema.methods.upvote = function() {
+  this.upvotes++
+}
+
 const Post = mongoose.model('Post', postSchema)
 
 export default Post
