@@ -8,8 +8,10 @@ import { BrowserModule } from '@angular/platform-browser'
 import AppComponent from './app/components/app.component'
 import PostComponent from './app/components/post.component'
 
+
 @NgModule({
   imports: [ BrowserModule ],
+  styleUrls: ['./style.css'],
   declarations: [
     PostComponent,
     AppComponent

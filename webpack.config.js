@@ -1,4 +1,5 @@
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
     entry: './src/frontend/bootstrap.js',
@@ -24,8 +25,12 @@ module.exports = {
         template: './src/frontend/index.html',
         inject: 'body',
         minify: false
-      }
-    )],
+      }),
+      new CopyWebpackPlugin([{
+        from: 'src/frontend/assets',
+        to: 'assets'
+      }])
+    ],
 
     devtool: '#inline-source-map'
 }
