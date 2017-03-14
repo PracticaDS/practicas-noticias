@@ -11,8 +11,8 @@ import PostComponent from './app/components/post.component'
 @NgModule({
   imports: [ BrowserModule ],
   declarations: [
-    AppComponent,
-    PostComponent
+    PostComponent,
+    AppComponent
   ],
   bootstrap: [ AppComponent ]
 })
