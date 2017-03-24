@@ -12,14 +12,28 @@ import 'rxjs/add/operator/toPromise'
 import AppComponent from './app/components/app.component'
 import PostComponent from './app/components/post.component'
 import NewPostComponent from './app/components/newPost.component'
+import PostDetailComponent from './app/components/postDetail.component'
+import PostListComponent from './app/components/postList.component'
+import CommentComponent from './app/components/comment.component'
+
+import { RouterModule }  from '@angular/router';
+
+let router = RouterModule.forRoot([
+  { path: '', redirectTo: '/noticias', pathMatch: 'full' },
+  { path: 'noticias', component: PostListComponent },
+  { path: 'noticia/:id', component: PostDetailComponent }
+], { useHash: true })
 
 @NgModule({
-  imports: [ BrowserModule, FormsModule, HttpModule ],
+  imports: [ router, BrowserModule, FormsModule, HttpModule ],
   styleUrls: ['./style.css'],
   declarations: [
     PostComponent,
     NewPostComponent,
-    AppComponent
+    AppComponent,
+    PostDetailComponent,
+    PostListComponent,
+    CommentComponent
   ],
   bootstrap: [ AppComponent ]
 })

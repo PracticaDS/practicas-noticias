@@ -25,5 +25,5 @@ export default class NewPostComponent {
 }
 
 NewPostComponent.parameters = [
-  [PostService]
+  PostService
 ]

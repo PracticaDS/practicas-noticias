@@ -16,6 +16,11 @@ export default class PostService {
       return this._posts;
     }
 
+    getPost(id) {
+      return this.http.get(`/noticias/${id}`).toPromise()
+              .then(response => response.json());
+    }
+
     create(post) {
       this.http.post("/noticias", JSON.stringify(post), { headers:{'Content-Type': 'application/json'}})
               .toPromise()
@@ -25,5 +30,5 @@ export default class PostService {
 }
 
 PostService.parameters = [
-  [Http]
+  Http
 ]
