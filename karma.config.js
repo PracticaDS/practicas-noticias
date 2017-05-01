@@ -1,20 +1,19 @@
 module.exports = (config) => {
   config.set({
-    basePath: '',
-    frameworks: ['mocha', 'chai'],
-    files: [
-       { pattern: 'test/*.js' }
-    ],
-    exclude: [
-    ],
+    basePath: 'test/frontend',
+    frameworks: [ 'mocha' ],
+    files: [ 'all_tests.js' ],
     preprocessors: {
-      'test/main.js': ['webpack']
+      'all_tests.js': [ 'webpack' ],
     },
-    reporters: [ "mocha" ],
+    reporters: [ 'mocha' ],
     mochaReporter: {
 			output: "full"
 		},
     webpack: require('./webpack.config'),
+    webpackMiddleware: {
+      stats: 'errors-only'
+    },
     browserConsoleLogOptions: {
       level: 'log',
       format: '%b %T: %m',
