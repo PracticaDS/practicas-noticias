@@ -1,16 +1,15 @@
-import { Component } from '@angular/core';
+import { Component } from '@angular/core'
+import template from './postList.component.html'
 
-import PostService from '../services/post.service';
+import PostService from '../services/post.service'
 
 @Component({
   selector: 'postList',
-  template: `<post *ngFor="let item of posts" [data]="item" [routerLink]="['/noticia', item._id]"></post>
-
-            <newPost></newPost>`
+  template: template
 })
 export default class PostListComponent {
   constructor(postService) {
-    this.posts = postService.posts;
+    this.posts = postService.posts
   }
 }
 

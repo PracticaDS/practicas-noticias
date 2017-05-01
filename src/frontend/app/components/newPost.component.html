@@ -1,0 +1,7 @@
+<form>
+  Nueva noticia:
+  <input [(ngModel)]="data.title" placeholder="Titulo" name="title">
+  <textarea [(ngModel)]="data.content" placeholder="Contenido" name="content"></textarea>
+
+  <button type="button" (click)="onSubmit()">Crear noticia</button>
+<form>

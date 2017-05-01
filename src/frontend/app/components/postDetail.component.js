@@ -1,17 +1,13 @@
-  import { Component } from '@angular/core';
+  import { Component } from '@angular/core'
+  import template from './postDetail.component.html'
 
-  import { ActivatedRoute } from '@angular/router';
+  import { ActivatedRoute } from '@angular/router'
   import PostService from "../services/post.service"
 
   @Component({
     selector: 'postDetail',
     inputs: [ 'post' ],
-    template: `<post [data]="post"></post>
-
-              <h2>Comentarios:</h2>
-              <comment *ngFor="let comment of post.comments" [data]="comment"></comment>
-
-              <a [routerLink]="['/noticias']">Atras</a>`
+    template: template
   })
   export default class PostDetailComponent {
 
@@ -26,7 +22,7 @@
         //cuando algo un parametro cambia
         this.postService.getPost(params.id)
             .then(post => this.post = post)
-            .catch(e => console.log(e));
+            .catch(e => console.log(e))
       });
     }
 

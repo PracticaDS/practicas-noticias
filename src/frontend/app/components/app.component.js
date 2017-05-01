@@ -1,11 +1,11 @@
-import { Component } from '@angular/core';
+import { Component } from '@angular/core'
+import template from './app.component.html'
 
-import PostService from '../services/post.service';
+import PostService from '../services/post.service'
 
 @Component({
   selector: 'app-view',
-  template: `<h1>Bienvenidos a {{name}}</h1>
-            <router-outlet></router-outlet>`,
+  template: template,
   providers: [ PostService ]
 })
 export default class AppComponent {

@@ -1,16 +1,11 @@
 import { Component } from '@angular/core';
+import template from './newPost.component.html'
 
-import PostService from '../services/post.service';
+import PostService from '../services/post.service'
 
 @Component({
   selector: 'newPost',
-  template: `<form>
-                Nueva noticia:
-                <input [(ngModel)]="data.title" placeholder="Titulo" name="title">
-                <textarea [(ngModel)]="data.content" placeholder="Contenido" name="content"></textarea>
-
-                <button type="button" (click)="onSubmit()">Crear noticia</button>
-             <form>`
+  template: template
 })
 export default class NewPostComponent {
   constructor(postService) {
