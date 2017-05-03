@@ -2,10 +2,10 @@ module.exports = (config) => {
   config.set({
     basePath: 'test/frontend',
     frameworks: [ 'mocha' ],
-    files: [ '**/*.test.js' ],
+    files: [ 'all_tests.js' ],
 
     preprocessors: {
-      "**/*.test.js": ["webpack"]
+      "all_tests.js": ["webpack"]
     },
     webpack: require("./webpack.config"),
     webpackMiddleware: {
