@@ -4,6 +4,7 @@
   "main": "src/backend/server.js",
   "scripts": {
     "start": "babel-node -- src/backend/server.js",
+    "build": "webpack",
     "test": "mocha test/backend --recursive --compilers js:babel-core/register --require babel-polyfill --timeout 120000"
   },
   "keywords": [],
