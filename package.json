@@ -8,6 +8,7 @@
     "test": "mocha test/backend --recursive --compilers js:babel-core/register --require babel-polyfill --timeout 120000",
     "webdriver-update": "webdriver-manager update",
     "webdriver-start": "webdriver-manager start",
+    "webdriver-update-and-start": "webdriver-manager update && webdriver-manager start",
     "test-e2e": "protractor protractor.conf.js"
   },
   "keywords": [],

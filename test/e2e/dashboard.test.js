@@ -3,10 +3,15 @@ import "babel-polyfill"
 import chai from "chai"
 chai.should()
 
+const serverHost = process.env.APP_SERVER || 'localhost'
+
 describe("Dashboard landing", () => {
 
   it("Should something", async() => {
-    browser.get("http://localhost:3001")
+    // test removing this line in docker
+    browser.ignoreSynchronization = true;
+
+    browser.get(`http://${serverHost}:3001`)
 
     const title = await browser.getTitle()
     title.should.be.equal("Noticias")

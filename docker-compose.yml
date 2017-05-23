@@ -1,0 +1,31 @@
+version: "3"
+services:
+  mongo:
+    image: mongo
+    ports:
+      - "27018:27017"
+    command: "--smallfiles --logpath=/dev/null"
+  noticias-app:
+    build: '.'
+    ports:
+      - "3001:3001"
+    links:
+      - mongo
+    environment: 
+      MONGO_SERVER: 'mongo'
+  webdriver:
+    # build: '.'
+    # command: 'yarn webdriver-update-and-start'
+    image: 'selenium/standalone-chrome:3.4.0'
+    ports:
+      - "4444:4444"
+  tests:
+    build: '.'
+    command: 'yarn gulp e2e-only'
+    links:
+      - noticias-app
+      - webdriver
+    environment: 
+      APP_SERVER: 'noticias-app'
+      WEBDRIVER_HOST: 'webdriver'
+  

@@ -38,3 +38,14 @@ gulp.task('e2e', () => {
       })
     })
 })
+
+gulp.task('e2e-only', () => {
+  return new Promise((resolve, reject) => {
+      gulp.src('test/e2e/**/*.test.js')
+        .pipe(protractor({ 
+          configFile: __dirname + '/protractor.conf.js'
+        }))
+        .on('error', reject)
+        .on('end', resolve)
+    })
+})
