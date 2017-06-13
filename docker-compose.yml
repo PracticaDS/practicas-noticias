@@ -12,7 +12,7 @@ services:
     links:
       - mongo
     environment: 
-      MONGO_SERVER: 'mongo'
+      MONGO_SERVER: 'mongodb://mongo/news'
   webdriver:
     # build: '.'
     # command: 'yarn webdriver-update-and-start'
