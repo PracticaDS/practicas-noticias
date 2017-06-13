@@ -24,6 +24,7 @@ describe("Dashboard landing", () => {
     element(by.css("newpost textarea[name=content]")).sendKeys("Este es el cuerpo de la noticia")
     await element(by.css("newpost button")).click()
 
+    browser.driver.sleep(1000);
     const cantidad = await element.all(by.css("postlist post")).count()
     cantidad.should.be.equal(cantidadOriginal + 1)
   });
