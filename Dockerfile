@@ -10,3 +10,5 @@ RUN yarn
 RUN yarn build
 
 CMD yarn start
+
+EXPOSE 3001
